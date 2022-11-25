@@ -1,5 +1,7 @@
 # Makes the CLI programs (./cli, ./kalzit) executable
 
+cd ../Kalzit
+
 chmod +x ./cli
 chmod +x ./kalzit
 
