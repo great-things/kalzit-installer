@@ -53,8 +53,8 @@ installDependencyByFolder () {
 
 runInstallersOnLevel () {
 	local level=$1
-	#Loop through ./utilities/installer/parts/dependencies/$level
-	for subFolder in ./utilities/installer/parts/dependencies/$level/* ; do
+	#Loop through ./parts/dependencies/$level
+	for subFolder in ./parts/dependencies/$level/* ; do
 		#Get the name of that folder, which corresponds to the command name of the dependency
 		local dependencyName=$(basename $subFolder)
 		
@@ -71,11 +71,11 @@ runInstallersOnLevel () {
 #Make console output look better
 echo
 
-#We have a few incrementally numbered folders in ./utilities/installer/parts/dependencies - loop through them, until a folder with that number can not be found
+#We have a few incrementally numbered folders in ./parts/dependencies - loop through them, until a folder with that number can not be found
 folderCounter=0
 while : ; do
 	#Check if the folder exists
-	if [ -d "./utilities/installer/parts/dependencies/$folderCounter" ]; then
+	if [ -d "./parts/dependencies/$folderCounter" ]; then
 		#Run the dependency installers within that folder
 		runInstallersOnLevel $folderCounter
 		
